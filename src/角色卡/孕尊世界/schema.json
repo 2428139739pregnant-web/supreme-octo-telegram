@@ -1,0 +1,245 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "世界": {
+      "type": "object",
+      "properties": {
+        "当前时间": {
+          "type": "string",
+          "description": "YYYY-MM-DD HH:MM"
+        },
+        "当前地点": {
+          "type": "string"
+        },
+        "国家": {
+          "type": "string"
+        },
+        "天气": {
+          "type": "string"
+        },
+        "周边环境": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "当前时间",
+        "当前地点",
+        "国家",
+        "天气",
+        "周边环境"
+      ]
+    },
+    "当前角色": {
+      "type": "object",
+      "properties": {
+        "名字": {
+          "default": "未知",
+          "type": "string"
+        },
+        "身份": {
+          "default": "普通孕妇",
+          "type": "string"
+        },
+        "年龄": {
+          "default": 25,
+          "type": "number"
+        },
+        "身高": {
+          "default": 165,
+          "type": "number"
+        },
+        "体重": {
+          "default": 55,
+          "type": "number"
+        },
+        "健康状况": {
+          "default": "健康",
+          "type": "string"
+        },
+        "三围": {
+          "default": {
+            "Bust": 85,
+            "Waist": 70,
+            "Hips": 88
+          },
+          "type": "object",
+          "properties": {
+            "Bust": {
+              "type": "number"
+            },
+            "Waist": {
+              "type": "number"
+            },
+            "Hips": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "Bust",
+            "Waist",
+            "Hips"
+          ]
+        },
+        "着装": {
+          "default": {},
+          "type": "object",
+          "propertyNames": {
+            "type": "string",
+            "description": "服装部位"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "description": "服装描述"
+          }
+        },
+        "性经验": {
+          "default": "无",
+          "type": "string"
+        },
+        "当前行动": {
+          "default": "",
+          "type": "string"
+        },
+        "妊娠": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "状态": {
+              "default": "未怀孕",
+              "type": "string"
+            },
+            "周数": {
+              "default": 0,
+              "type": "number"
+            },
+            "胎儿数目": {
+              "default": 0,
+              "type": "number"
+            }
+          }
+        },
+        "胎儿": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "大小": {
+              "default": "适中",
+              "type": "string"
+            },
+            "物种": {
+              "default": "人类",
+              "type": "string"
+            },
+            "胎位": {
+              "default": "",
+              "type": "string"
+            },
+            "动作": {
+              "default": "",
+              "type": "string"
+            },
+            "反应": {
+              "default": "",
+              "type": "string"
+            },
+            "心情": {
+              "default": "",
+              "type": "string"
+            },
+            "入盆": {
+              "default": "还未入盆",
+              "type": "string"
+            }
+          }
+        },
+        "肚子": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "外观描述": {
+              "default": "",
+              "type": "string"
+            },
+            "类型": {
+              "default": "",
+              "type": "string"
+            },
+            "大小描述": {
+              "default": "",
+              "type": "string"
+            },
+            "腹围": {
+              "default": 0,
+              "type": "number"
+            },
+            "挺翘度": {
+              "default": "",
+              "type": "string"
+            },
+            "柔韧性": {
+              "default": "",
+              "type": "string"
+            },
+            "光泽度": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        },
+        "器官": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "子宫": {
+              "default": "",
+              "type": "string"
+            },
+            "羊膜": {
+              "default": "",
+              "type": "string"
+            },
+            "胃部": {
+              "default": "",
+              "type": "string"
+            },
+            "膀胱": {
+              "default": "",
+              "type": "string"
+            },
+            "肠子": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        },
+        "性器官": {
+          "default": {},
+          "type": "object",
+          "properties": {
+            "胸部状态": {
+              "default": "",
+              "type": "string"
+            },
+            "臀部状态": {
+              "default": "",
+              "type": "string"
+            },
+            "小穴状态": {
+              "default": "",
+              "type": "string"
+            },
+            "后穴状态": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "世界",
+    "当前角色"
+  ]
+}
