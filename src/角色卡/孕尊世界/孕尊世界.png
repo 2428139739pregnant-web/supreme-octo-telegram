@@ -110,7 +110,7 @@
             "id": "f65ab164-4268-4366-8228-16af904c2251",
             "enabled": true,
             "type": "script",
-            "content": "import 'https://testingcf.jsdelivr.net/gh/StageDog/tavern_helper_template/dist/孕尊世界/脚本/变量结构/index.js';\n",
+            "content": "import 'https://testingcf.jsdelivr.net/gh/2428139739pregnant-web/supreme-octo-telegram/dist/角色卡/孕尊世界/脚本/变量结构/index.js';\n",
             "info": "",
             "button": {
               "enabled": true,
