@@ -310,6 +310,35 @@ details.collapsible summary:hover {
   margin-bottom: 12px;
 }
 
+/* === 错误降级面板 (store 初始化失败时显示) === */
+.error-panel {
+  background: rgba(139, 58, 94, 0.2);
+  border: 1px solid var(--accent-wine);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: var(--text-primary);
+}
+.error-panel h3 {
+  font-size: 13px;
+  color: var(--border-rose);
+  margin-bottom: 6px;
+}
+.error-panel code {
+  font-family: 'Cascadia Code', 'Consolas', monospace;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+.error-hint {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
 /* === 响应式 === */
 @media (max-width: 600px) {
   body {

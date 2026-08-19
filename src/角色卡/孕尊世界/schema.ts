@@ -100,12 +100,13 @@ const Character = z.object({
 });
 
 export const Schema = z.object({
+  // === 世界: 所有字段都有 prefault, 容错 stat_data 不完整 ===
   世界: z.object({
-    当前时间: z.string().describe('YYYY-MM-DD HH:MM'),
-    当前地点: z.string(),
-    国家: z.string(),
-    天气: z.string(),
-    周边环境: z.string(),
+    当前时间: z.string().prefault('—').describe('YYYY-MM-DD HH:MM'),
+    当前地点: z.string().prefault('—'),
+    国家: z.string().prefault('—'),
+    天气: z.string().prefault('—'),
+    周边环境: z.string().prefault('—'),
   }),
 
   // === 多个互动中的角色 (key = 角色名) ===
