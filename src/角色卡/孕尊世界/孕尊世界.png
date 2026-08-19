@@ -74,7 +74,7 @@
           "disabled": false,
           "runOnEdit": false,
           "findRegex": "<StatusPlaceHolderImpl/>",
-          "replaceString": "```\n<body>\n<script>\n$('body').load('https://testingcf.jsdelivr.net/gh/2428139739pregnant-web/supreme-octo-telegram/dist/角色卡/孕尊世界/界面/状态栏/index.html?v=2')\n</script>\n</body>\n```\n",
+          "replaceString": "```\n<body>\n<script>\n$('body').load('https://cdn.jsdelivr.net/gh/2428139739pregnant-web/supreme-octo-telegram/dist/角色卡/孕尊世界/界面/状态栏/index.html?v=2')\n</script>\n</body>\n```\n",
           "trimStrings": [],
           "placement": [
             2
