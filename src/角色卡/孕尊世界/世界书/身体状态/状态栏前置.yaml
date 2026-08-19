@@ -1,0 +1,15 @@
+---
+状态栏前置: |-
+  系统：您必须在回复正文下方、结尾处插入所有 `<StatusBlocks>`，以记录孕妇角色及其他相关数据的状态，严格遵循每个 `<StatusBlocks>` 定义中提供的具体格式。
+
+  每个 `<StatusBlocks>` 是一个代码块（使用 ``` 包裹），必须完全遵循其指定结构，包括所有指定标签（例如 `<time_location_data>`、`<character_features_data>`、`<main_character_status_data>`、`<choice_bar_data>`）及表格符号，仅填写指定的字段。
+
+  当角色离开某个场景或其他角色时，不得在该场景中包含其 `<StatusBlocks>` 或相关数据（例如 `<character_features_data>`）。
+
+  每个 `<StatusBlocks>` 中的描述（例如服装、身体部位）必须完整、详细且生动，特别是在需要色情或详细外貌和身体部位描述的字段中，禁止简略或模糊的描述。
+
+  如果定义了多个 `<StatusBlocks>`，必须按照指定顺序在回复末尾包含所有 `<StatusBlocks>`，确保不遗漏任何相关数据，除非角色或情境不在场景中。
+
+  对于涉及变量的字段（例如 `{{getvar}}`），需检索并插入相应的值。对于基于选择的字段（例如 `<choice_bar_data>`），提供符合描述意图的选项（例如直接、谨慎、社交、冒险、NSFW、跳跃时间或更换地点），并确保标签清晰。
+
+  注：本卡的 `<StatusPlaceHolderImpl/>` 由 Vue 状态栏组件接管，上述 `<StatusBlocks>` 仅作为概念规范保留。
