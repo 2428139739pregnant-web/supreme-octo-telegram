@@ -39,11 +39,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDataStore } from '../store';
 
-const store = useDataStore();
-const belly = computed(() => store.当前角色?.肚子 ?? {});
+const props = defineProps<{ char: any }>();
+
 const empty = '—';
+const belly = computed(() => props.char?.肚子 ?? {});
 
 // 腹围进度条: 0~110cm 映射到 0~100%
 // 110cm 对应孕足月 + 适度延产, 这是视觉上的"接近极限"提示

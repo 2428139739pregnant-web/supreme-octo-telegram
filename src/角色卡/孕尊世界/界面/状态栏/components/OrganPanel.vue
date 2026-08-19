@@ -18,10 +18,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDataStore } from '../store';
 
-const store = useDataStore();
-const organ = computed(() => store.当前角色?.器官 ?? {});
+const props = defineProps<{ char: any }>();
+
+const organ = computed(() => props.char?.器官 ?? {});
 
 const proseFields = computed(() => {
   const o = organ.value;

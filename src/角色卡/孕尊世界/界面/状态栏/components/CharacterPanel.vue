@@ -1,7 +1,7 @@
 <template>
   <section class="panel">
     <header class="panel-header">
-      <span>👤 当前角色</span>
+      <span>👤 基础信息</span>
       <span class="field-emphasis">{{ char.名字 || '未设定' }}</span>
     </header>
     <div class="panel-body">
@@ -44,15 +44,14 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDataStore } from '../store';
 
-const store = useDataStore();
-const char = computed(() => store.当前角色 ?? {});
+const props = defineProps<{ char: any }>();
+
 const empty = '—';
 
 const hasDress = computed(() => {
-  const d = char.value.着装;
+  const d = props.char?.着装;
   return d && typeof d === 'object' && Object.keys(d).length > 0;
 });
-const dressCount = computed(() => Object.keys(char.value.着装 ?? {}).length);
+const dressCount = computed(() => Object.keys(props.char?.着装 ?? {}).length);
 </script>

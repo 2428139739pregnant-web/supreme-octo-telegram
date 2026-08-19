@@ -37,10 +37,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDataStore } from '../store';
 
-const store = useDataStore();
-const preg = computed(() => store.当前角色?.妊娠 ?? {});
-const fetus = computed(() => store.当前角色?.胎儿 ?? {});
+const props = defineProps<{ char: any }>();
+
 const empty = '—';
+const preg = computed(() => props.char?.妊娠 ?? {});
+const fetus = computed(() => props.char?.胎儿 ?? {});
 </script>

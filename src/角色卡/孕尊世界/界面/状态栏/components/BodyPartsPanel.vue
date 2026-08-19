@@ -30,13 +30,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useDataStore } from '../store';
 
-const store = useDataStore();
-const char = computed(() => store.当前角色 ?? {});
+const props = defineProps<{ char: any }>();
 
 const bodyParts = computed(() => {
-  const o = char.value.性器官 ?? {};
+  const o = props.char?.性器官 ?? {};
   return {
     胸部: o.胸部状态,
     臀部: o.臀部状态,
