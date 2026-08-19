@@ -6,29 +6,27 @@
       "type": "object",
       "properties": {
         "当前时间": {
-          "type": "string",
-          "description": "YYYY-MM-DD HH:MM"
+          "description": "YYYY-MM-DD HH:MM",
+          "default": "—",
+          "$ref": "#/$defs/__schema0"
         },
         "当前地点": {
+          "default": "—",
           "type": "string"
         },
         "国家": {
+          "default": "—",
           "type": "string"
         },
         "天气": {
+          "default": "—",
           "type": "string"
         },
         "周边环境": {
+          "default": "—",
           "type": "string"
         }
-      },
-      "required": [
-        "当前时间",
-        "当前地点",
-        "国家",
-        "天气",
-        "周边环境"
-      ]
+      }
     },
     "当前角色": {
       "default": {},
@@ -256,5 +254,10 @@
   },
   "required": [
     "世界"
-  ]
+  ],
+  "$defs": {
+    "__schema0": {
+      "type": "string"
+    }
+  }
 }
