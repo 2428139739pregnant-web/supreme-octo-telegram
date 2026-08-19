@@ -23,6 +23,7 @@ import { computed } from 'vue';
 import { useDataStore } from '../store';
 
 const store = useDataStore();
-const world = computed(() => store.世界 ?? {});
+// defineMvuDataStore 的返回值是 { data: {...}, ... }, 世界 字段在 .data 下
+const world = computed(() => store.data?.世界 ?? {});
 const empty = '—';
 </script>

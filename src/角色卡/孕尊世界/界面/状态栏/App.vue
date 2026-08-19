@@ -58,10 +58,10 @@ try {
   store.value = useDataStore();
   // eslint-disable-next-line no-console
   console.log('[孕尊世界状态栏] store 初始化成功', {
-    has世界: !!store.value?.世界,
-    has当前角色: !!store.value?.当前角色,
-    当前角色keys: Object.keys(store.value?.当前角色 ?? {}),
-    关注角色: store.value?.关注角色,
+    has世界: !!store.value?.data?.世界,
+    has当前角色: !!store.value?.data?.当前角色,
+    当前角色keys: Object.keys(store.value?.data?.当前角色 ?? {}),
+    关注角色: store.value?.data?.关注角色,
   });
 } catch (err: any) {
   bootError.value = String(err?.message ?? err);
@@ -70,15 +70,16 @@ try {
 }
 
 // 角色列表 — 按 JSONPatch 插入顺序排列
+// 注意: defineMvuDataStore 的返回值是 { data: {...}, ... }, 所有 schema 字段都在 .data 下
 const characters = computed(() =>
-  store.value ? Object.keys(store.value.当前角色 ?? {}) : []
+  store.value ? Object.keys(store.value.data?.当前角色 ?? {}) : []
 );
 
 // 当前关注角色 (用于 UI 高亮)
-const focus = computed(() => store.value?.关注角色 ?? '');
+const focus = computed(() => store.value?.data?.关注角色 ?? '');
 
 // 取指定角色的完整对象 (交给各子面板渲染)
 function charOf(name: string) {
-  return store.value?.当前角色?.[name] ?? {};
+  return store.value?.data?.当前角色?.[name] ?? {};
 }
 </script>
