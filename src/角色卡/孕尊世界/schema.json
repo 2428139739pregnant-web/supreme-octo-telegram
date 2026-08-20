@@ -3,6 +3,7 @@
   "type": "object",
   "properties": {
     "世界": {
+      "default": {},
       "type": "object",
       "properties": {
         "当前时间": {
@@ -252,9 +253,6 @@
       "type": "string"
     }
   },
-  "required": [
-    "世界"
-  ],
   "$defs": {
     "__schema0": {
       "type": "string"
