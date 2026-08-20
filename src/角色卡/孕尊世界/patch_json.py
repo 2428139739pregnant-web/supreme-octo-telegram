@@ -13,8 +13,8 @@ def patch(o):
         return [patch(x) for x in o]
     if isinstance(o, str):
         o = o.replace('testingcf.jsdelivr.net', 'cdn.jsdelivr.net')
-        o = o.replace('?v=4', '?v=5')
-        o = o.replace('@f4993fd7ed5d94fc6a81714f4f76321f0335f69d/dist', '@c59c6848b92b42763907b7d2ac1f80f4d750672c/dist')
+        o = o.replace('?v=5', '?v=6')
+        o = o.replace('@c59c6848b92b42763907b7d2ac1f80f4d750672c/dist', '@84ac617324688bce5e2db0fd1ed89d2c14b11216/dist')
         return o
     return o
 

@@ -673,7 +673,7 @@
         ```
         <body>
         <script>
-        $('body').load('https://cdn.jsdelivr.net/gh/2428139739pregnant-web/supreme-octo-telegram@c59c6848b92b42763907b7d2ac1f80f4d750672c/dist/角色卡/孕尊世界/界面/状态栏/index.html?v=5')
+        $('body').load('https://cdn.jsdelivr.net/gh/2428139739pregnant-web/supreme-octo-telegram@84ac617324688bce5e2db0fd1ed89d2c14b11216/dist/角色卡/孕尊世界/界面/状态栏/index.html?v=6')
         </script>
         </body>
         ```
