@@ -100,14 +100,17 @@ const Character = z.object({
 });
 
 export const Schema = z.object({
-  // === 世界: 所有字段都有 prefault, 容错 stat_data 不完整 ===
-  世界: z.object({
-    当前时间: z.string().prefault('—').describe('YYYY-MM-DD HH:MM'),
-    当前地点: z.string().prefault('—'),
-    国家: z.string().prefault('—'),
-    天气: z.string().prefault('—'),
-    周边环境: z.string().prefault('—'),
-  }),
+  // === 世界: 外层加 .prefault({}) 避免 stat_data 完全缺失时整个抛错 ===
+  // (内层字段各自的 .prefault('—') 仍然生效, 即便 stat_data 有 世界={} 也能正常显示)
+  世界: z
+    .object({
+      当前时间: z.string().prefault('—').describe('YYYY-MM-DD HH:MM'),
+      当前地点: z.string().prefault('—'),
+      国家: z.string().prefault('—'),
+      天气: z.string().prefault('—'),
+      周边环境: z.string().prefault('—'),
+    })
+    .prefault({}),
 
   // === 多个互动中的角色 (key = 角色名) ===
   当前角色: z
