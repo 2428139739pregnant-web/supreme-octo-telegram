@@ -12,23 +12,36 @@
 //   5. 禁 z.passthrough / z.strict
 //   6. 字段命名遵循既有混球的xp 世界书的 {{key}} 占位符
 
+/**
+ * 数值字段: coerce + clamp 到合法区间。
+ *
+ * 用 transform+clamp 而不是 .min()/.max(): 后者在越界时抛错, 会让整条 JSONPatch
+ * 更新被丢弃; clamp 则降级为边界值, 保住同批次其他字段的更新。
+ * 区间取自 世界书/变量/变量更新规则.yaml 的 range 声明。
+ */
+const clamped = (min: number, max: number, fallback: number) =>
+  z.coerce
+    .number()
+    .transform(n => (Number.isFinite(n) ? _.clamp(n, min, max) : fallback))
+    .prefault(fallback);
+
 const Character = z.object({
   // === 基础信息 ===
   名字: z.string().prefault('未知'),
   身份: z.string().prefault('普通孕妇'), // 特权孕妇/指标孕妇/年轻孕妇/边缘年轻孕妇/核心年轻孕妇/普通孕妇 等
-  年龄: z.coerce.number().prefault(25),
-  身高: z.coerce.number().prefault(165), // cm
-  体重: z.coerce.number().prefault(55), // kg
+  年龄: clamped(18, 80, 25),
+  身高: clamped(140, 200, 165), // cm
+  体重: clamped(30, 150, 55), // kg
   健康状况: z.string().prefault('健康'),
 
-  // === 三围 ===
+  // === 三围 (cm, 整数; 孕中期后 Waist 应大于 Bust/Hips) ===
   三围: z
     .object({
-      Bust: z.coerce.number(),
-      Waist: z.coerce.number(),
-      Hips: z.coerce.number(),
+      Bust: clamped(50, 200, 85),
+      Waist: clamped(40, 250, 70),
+      Hips: clamped(50, 200, 88),
     })
-    .prefault({ Bust: 85, Waist: 70, Hips: 88 }),
+    .prefault({}),
 
   // === 着装 (key 为部位, value 为详细描述) ===
   着装: z
@@ -42,9 +55,9 @@ const Character = z.object({
   // === 妊娠 ===
   妊娠: z
     .object({
-      状态: z.string().prefault('未怀孕'),
-      周数: z.coerce.number().prefault(0),
-      胎儿数目: z.coerce.number().prefault(0),
+      状态: z.string().prefault('未怀孕'), // 未怀孕 / X周-孕早期 / 孕中期 / 孕晚期 / 临产 / 过产期
+      周数: clamped(0, 45, 0),
+      胎儿数目: clamped(0, 10, 0),
     })
     .prefault({}),
 
@@ -67,7 +80,7 @@ const Character = z.object({
       外观描述: z.string().prefault(''),
       类型: z.string().prefault(''),
       大小描述: z.string().prefault(''),
-      腹围: z.coerce.number().prefault(0),
+      腹围: clamped(0, 250, 0), // cm, 与 三围.Waist 协调
       挺翘度: z.string().prefault(''),
       柔韧性: z.string().prefault(''),
       光泽度: z.string().prefault(''),
