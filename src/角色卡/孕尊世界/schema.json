@@ -64,28 +64,22 @@
             "type": "string"
           },
           "三围": {
-            "default": {
-              "Bust": 85,
-              "Waist": 70,
-              "Hips": 88
-            },
+            "default": {},
             "type": "object",
             "properties": {
               "Bust": {
+                "default": 85,
                 "type": "number"
               },
               "Waist": {
+                "default": 70,
                 "type": "number"
               },
               "Hips": {
+                "default": 88,
                 "type": "number"
               }
-            },
-            "required": [
-              "Bust",
-              "Waist",
-              "Hips"
-            ]
+            }
           },
           "着装": {
             "default": {},

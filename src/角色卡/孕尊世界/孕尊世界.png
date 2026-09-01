@@ -1249,7 +1249,7 @@
           "constant": true,
           "selective": false,
           "insertion_order": 14720,
-          "enabled": true,
+          "enabled": false,
           "position": "after_char",
           "use_regex": true,
           "extensions": {
